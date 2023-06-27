@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+   <!-- <style>
+        header{
+            margin-left: 350px;
+            margin-bottom: 50px;
+            font-size: x-large;
+        }
+        #container{
+            margin-left: 150px;
+            height: 400px;
+            width: 500px;
+            background-color: aliceblue;
+            border: 1px solid black;
+            
+        }
+        h1{
+            text-align: center;
+        }
+        input{
+            margin-left: 50px;
+            width: 350px;
+        }
+        ul{
+            list-style: none;
+            margin-top: 5px;
+            margin-left: 10px;
+        }
+        li{
+            background-color: aquamarine;
+            margin-top: 5px;
+        }
+        label{
+            margin-left: 50px;
+        }
+        button{
+            margin-left: 50px;
+            margin-top: 10px;
+            background-color: grey;
+            width:50px;
+            height: 30px;
+        }
+       
+    </style> -->
+</head>
+<body>
+    <header>Simple Form</header>
+   
+    <h1>Expense Tracker</h1>
+    <form onsubmit="savetoLocalStorage(event)">
+    
+    
+
+   <div><label for="money">Expense</label><br>
+    <input type="number" id="money" name="money"><br></div> 
+
+<div><label for="category">Decrription</label><br>
+    <input type="text" id="info" name="info"><br></div>
+
+    <div><label for="category">type</label><br>
+        <select name="type" id="listexpense">
+            <option >🍲  Food</option>
+            <option >⛽  Fuel</option>
+            <option >🚌  Travel</option>
+            <option >🎥 Movie</option>
+          </select>
+
+
+ <button >Submit</button>
+</form>
+<ul id="listOfItems"></ul>
+    
+    <script>
+function savetoLocalStorage(event){
+    event.preventDefault();
+
+    const money=event.target.money.value;
+    const info=event.target.info.value;
+    const category=event.target.category.value;
+
+    const obj={
+        money,
+        info,
+        category
+    }
+    localStorage.setItem(obj.email,Json.stringyfy(obj))
+    showUseronScreen(obj)
+}
+function showUseronScreen(obj){
+    const parentElem=document.getElementById('listOfItems');
+    const childElem=document.createElement('li')
+    childElem.textContent=obj.money+"  "+ obj.info+" "+obj.category;
+    perentElem.appendChild(childElem)
+}
+
+
+            
+    </script>
+</body>
+</html>
